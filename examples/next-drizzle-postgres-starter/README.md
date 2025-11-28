@@ -28,6 +28,15 @@ pnpm dx
 
 ## Development
 
+### Local database workflow
+
+```bash
+docker compose up -d        # start Postgres on localhost:5499
+pnpm db-migrate             # create/update database schema
+pnpm db-seed                # populate baseline data
+pnpm dev                    # run the Next.js dev server
+```
+
 ### Start project
 
 ```bash
@@ -40,13 +49,14 @@ pnpm dx
 ### Commands
 
 ```bash
-pnpm build      # runs next build
-pnpm db-seed    # seeds local db
-pnpm dev        # seeds and starts next.js locally
-pnpm dx         # runs all dx:* scripts (currently just seeds + dev server)
-pnpm test-start # runs e2e + unit tests
-pnpm test-unit  # runs normal Vitest unit tests
-pnpm test-e2e   # runs e2e tests
+pnpm build       # runs next build
+pnpm db-migrate  # runs idempotent database migrations
+pnpm db-seed     # seeds local db
+pnpm dev         # seeds and starts next.js locally
+pnpm dx          # runs all dx:* scripts (migrate + seed + dev server)
+pnpm test-start  # runs e2e + unit tests
+pnpm test-unit   # runs normal Vitest unit tests
+pnpm test-e2e    # runs e2e tests
 ```
 
 ## Deployment

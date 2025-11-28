@@ -2,8 +2,9 @@
   "name": "examples-trpc-next-drizzle-starter",
   "private": true,
   "scripts": {
+    "db-migrate": "tsx src/server/db/migrate.ts",
     "db-seed": "tsx src/server/db/seed.ts",
-    "dx:next": "run-s db-seed && next dev",
+    "dx:next": "run-s db-migrate db-seed && next dev",
     "dx": "run-p dx:* --print-label",
     "dev": "pnpm dx:next",
     "build": "next build",
